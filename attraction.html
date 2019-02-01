@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -47,10 +47,7 @@
 
 .dropdown:hover .dropbtn {background-color:rgb(204,255,0);}
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+* {box-sizing:border-box}
 
 /* Slideshow container */
 .slideshow-container {
@@ -59,14 +56,19 @@ img {vertical-align: middle;}
   margin: auto;
 }
 
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
-  padding: 16px;
   margin-top: -22px;
+  padding: 16px;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -118,7 +120,7 @@ img {vertical-align: middle;}
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+ .dot:hover {
   background-color: #717171;
 }
 
@@ -140,9 +142,135 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
 </head>
@@ -246,14 +374,98 @@ img {vertical-align: middle;}
   <span class="dot" onclick="currentSlide(5)"></span>
   <span class="dot" onclick="currentSlide(6)"></span> 
 </div>
+<br /><br /><br />
+<!--LIGHTBOX EFFECT-->
+
+<div class="row">
+	<br /><br />
+  <div class="column">
+    <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/79dc9abb-5c3e-4aa9-b2af-166156bd94ff.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:76.92%25/rs=w:538,h:269,cg:true"  style="height:150px; width:300px" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/1bcef6ce-87b1-4c6e-860f-87662d604666.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style="height:150px; width:300px" onclick="openModal();currentSlide(2)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/88b54297-3bb3-4187-9d92-1ac03518806a.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style="height:150px; width:300px" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/d3125c7b-fb11-4831-8256-9f393a2ffe1d.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style="height:150px; width:300px" onclick="openModal();currentSlide(4)" class="hover-shadow">
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/79dc9abb-5c3e-4aa9-b2af-166156bd94ff.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:76.92%25/rs=w:538,h:269,cg:true" style="height:600px; width:1000px">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/1bcef6ce-87b1-4c6e-860f-87662d604666.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style="height:600px; width:1000px">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/88b54297-3bb3-4187-9d92-1ac03518806a.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style="height:600px; width:1000px">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/d3125c7b-fb11-4831-8256-9f393a2ffe1d.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" style=" height:600px; width:1000px">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/79dc9abb-5c3e-4aa9-b2af-166156bd94ff.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:76.92%25/rs=w:538,h:269,cg:true" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/1bcef6ce-87b1-4c6e-860f-87662d604666.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" onclick="currentSlide(2)" alt="Snow">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/88b54297-3bb3-4187-9d92-1ac03518806a.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="https://img1.wsimg.com/isteam/ip/36b8b618-ab67-45de-9ea1-dd22587e6a97/d3125c7b-fb11-4831-8256-9f393a2ffe1d.jpg/:/rs=w:538,h:269,cg:true,m/cr=w:538,h:269" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div><br /><br /><br /><br /><br /><br />
+</div>
+
 <script>
+// Open the Modal
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
+// Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
+// Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
@@ -261,19 +473,57 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
 
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; 
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1} 
+  slides[slideIndex-1].style.display = "block"; 
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+</script>
+
+<!-- Powering-->
+
+<div class="container-fluid bg-dark">
+	<br /><br />
+	<div class="row">
+    	<div class="col-1"></div>
+    	<div class="col-5">
+        	<p align="left" class="text-light">Copyright © 2019 Sagnik - All Rights Reserved.</p>
+        </div>
+        <div class="col-5">
+        	<p align="right" class="text-light">Powered by Sagnik's <a href="sagnik20.github.io" class="text-success">Website Builder</a></p>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-12">
+        	<p align="center"><a href="#" class="text-warning"> Rates and availability</a></p>
+        </div> 
+    </div><br /><br /> 
+</div><strong></strong>
 </body>
 </html>
